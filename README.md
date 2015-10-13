@@ -10,6 +10,6 @@ It's meant to click on the 13.37.00 minute mark, it has a small delay, so you wo
 
 HOW TO INSTALL
 
-1: Download Tampermonkey (chrome) or Greasemonkey (firefox).
-2: Add main.js to your scripts
-3: Refresh 1337online.com
+1: Download Tampermonkey (chrome) or Greasemonkey (firefox).\n
+2: Add main.js to your scripts\n
+3: Refresh 1337online.com\n
