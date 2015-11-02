@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         1337Win
 // @namespace    http://www.mikeveldsink.nl/1337Win
-// @version      1.0.6
+// @version      1.0.8
 // @description  winning!
 // @author       You
 // @match        http://1337online.com/
@@ -10,12 +10,13 @@
 // ==/UserScript==
 
 // Version
-var version = "1.0.6";
+var version = "1.0.8";
 
 // Options
 var targetDateTime = "13:37:00";
 var resetDateTime = "13:38:00";
 var pressed = false;
+var serverMode = false;
 
 // Create UI
 var title = document.createElement("h1");
@@ -44,24 +45,6 @@ sendButton.style.width = 0;
 sendButton.textContent = "";
 sendButton.style.visibility = "hidden";
 
-var updateTitle = document.createElement("h2");
-updateTitle.textContent = "Updates";
-document.body.appendChild(updateTitle);
-
-document.getElementsByTagName("div")[4].remove();
-
-var updateLog = document.createElement("div");
-updateLog.class = "updateLog";
-updateLog.style.overflowY = "scroll";
-updateLog.style.position = "block";
-updateLog.style.x = "500px";
-updateLog.style.y = "20px";
-updateLog.style.maxHeight = "200px";
-updateLog.style.maxWidth = "400px";
-updateLog.innerHTML = "1.0.6 - better UI<br>1.0.5 - optimised API calls<br>1.0.4 - added a automatic reset<br>1.0.3 - automatic reset<br>1.0.2 - automatic pressing<br>1.0.0 - actual release<br><br><br><br><br><br>";
-
-document.body.appendChild(updateLog);  
-
 var optionsTitle = document.createElement("h2");
 optionsTitle.textContent = "Options";
 document.body.appendChild(optionsTitle);
@@ -77,8 +60,33 @@ textfield_name.value = inputText.value;
 textfield_name.oninput = function () { inputText.value = textfield_name.value; }
 document.body.appendChild(textfield_name);  
 
+var smode = document.createElement("p");
+smode.textContent = "server mode:";
+document.body.appendChild(smode);
 
-var tick = setInterval(MainLoop, 1);
+var serverMode=document.createElement("input");
+serverMode.type = "checkbox";
+document.body.appendChild(serverMode);  
+
+var updateTitle = document.createElement("h2");
+updateTitle.textContent = "Updates";
+document.body.appendChild(updateTitle);
+
+document.getElementsByTagName("div")[4].remove();
+
+var updateLog = document.createElement("div");
+updateLog.class = "updateLog";
+updateLog.style.overflowY = "scroll";
+updateLog.style.position = "block";
+updateLog.style.x = "500px";
+updateLog.style.y = "20px";
+updateLog.style.maxHeight = "200px";
+updateLog.style.maxWidth = "400px";
+updateLog.innerHTML = "1.0.8 - added server mode<br>1.0.7 - Optimistions<br>1.0.6 - better UI<br>1.0.5 - optimised API calls<br>1.0.4 - added a automatic reset<br>1.0.3 - automatic reset<br>1.0.2 - automatic pressing<br>1.0.0 - actual release<br><br><br><br><br><br>";
+
+document.body.appendChild(updateLog);  
+
+var tick = setInterval(MainLoop, 0);
 
 // Update
 function MainLoop()
