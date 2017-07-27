@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         1337Win
-// @namespace    http://www.mikeveldsink.nl/1337Win
+// @namespace    http://veld.one
 // @version      1.0.8
 // @description  winning!
 // @author       You
